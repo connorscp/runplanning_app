@@ -1,0 +1,7 @@
+*.nogit
+
+# Folders
+secrets/
+
+# IPython Notebook
+.ipynb_checkpoints

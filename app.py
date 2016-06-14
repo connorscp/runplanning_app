@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 import requests
 import simplejson
 from stravalib import Client
@@ -12,14 +12,20 @@ client_secret = os.environ['strava_client_secret']
 
 print "client id cc: " + str(client_id)
 
-@app.route('/',methods=['GET'])
-def index():
-	return redirect('/index')
 
-@app.route('/index',methods=['GET','POST'])
-def home():
+@app.route('/',methods=['GET'])
+def homepage():
+	return redirect('/authenticate')
+
+@app.route('/authenticate',methods=['GET','POST'])
+def authenticate():
 	if request.method =='GET':
-		return render_template('authenticate.html')
+		client = stravalib.client.Client() #
+		auth_url = client.authorization_url(client_id=client_id, #
+			scope='view_private', #
+			redirect_uri='https://strava-test.herokuapp.com/authorized') #
+		return render_template('authenticate.html', auth_url=auth_url)
+
 	else:
 		# request was a POST
 		code = request.args.get('code', code)

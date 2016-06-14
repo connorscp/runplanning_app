@@ -32,7 +32,7 @@ def authenticate():
 
 	#	return render_template('authorization.html')
 
-
+"""
 @app.route('/authorized')
 def authorized():
 	code = flask.request.args.get('code', '')
@@ -42,7 +42,7 @@ def authorized():
     print token
     # return flask.redirect(flask.url_for('homepage'))
     return render_template('authorized.html')
-
+"""
 
 if __name__ == '__main__':
 	# app.run(host='0.0.0.0') # when running on DO. Start w/ vagrant:5000/index

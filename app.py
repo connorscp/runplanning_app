@@ -10,7 +10,7 @@ def index():
 @app.route('/index',methods=['GET','POST'])
 def home():
 	if request.method =='GET':
-		return render_tempate('authenticate.html')
+		return render_template('authenticate.html')
 	else:
 		# request was a POST
 		pass

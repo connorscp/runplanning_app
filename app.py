@@ -37,9 +37,7 @@ def authenticate():
 def authorized():
 	code = flask.request.args.get('code', '')
     client = stravalib.client.Client()
-    token = client.exchange_code_for_token(client_id=CLIENT_ID,
-            client_secret=CLIENT_SECRET,
-            code = code)
+    token = client.exchange_code_for_token(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, code = code)
     flask.session['access_token'] = token
     print token
     # return flask.redirect(flask.url_for('homepage'))

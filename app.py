@@ -22,10 +22,12 @@ def home():
 		return render_template('authenticate.html')
 	else:
 		# request was a POST
-		code = request.get('code')
+		code = request.args.get(code)
 		print "code cc: " + str(code)
 		access_token = client.exchange_code_for_token(client_id=client_id, client_secret=str(client_secret), code=code)
 		print "access token cc: " + str(access_token)
+
+		return render_template('authorization.html')
 
 
 if __name__ == '__main__':

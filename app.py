@@ -24,6 +24,7 @@ def authenticate():
 		auth_url = client.authorization_url(client_id=client_id, #
 			scope='view_private', #
 			redirect_uri='https://strava-test.herokuapp.com/authorized') #
+		print auth_url
 		return render_template('authenticate.html', auth_url=auth_url)
 
 	else:

@@ -2,8 +2,16 @@ from flask import Flask, render_template, request, redirect
 import requests
 import simplejson
 from stravalib import Client
+import configparser
 
 app = Flask(__name__)
+
+# Load the config from a file
+cfg = configparser.ConfigParser(default_section="StravaClient")
+cfg.read("strava.cfg")
+
+client_id = cfg.get("StravaClient", "ClientId")
+print client_id
 
 @app.route('/',methods=['GET'])
 def index():

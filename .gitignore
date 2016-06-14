@@ -1,4 +1,5 @@
 *.nogit
+strava.cfg
 
 # Folders
 secrets/

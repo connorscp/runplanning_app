@@ -10,10 +10,15 @@ def index():
 @app.route('/index',methods=['GET','POST'])
 def home():
 	if request.method =='GET':
-		return render_template('authenticate.html')
+		with open("secrets/strava_secrets.json.nogit") as fh:
+			secrets = simplejson.loads(fh.read())
+
+		client_id = secrets["client_id"]
+		return render_template('authenticate.html',client_id=client_id)
 	else:
 		# request was a POST
-		pass
+		code = request.get('code')
+		access_token = client.exchange_code_for_token(client_id=1234, client_secret='asdf1234', code=code)
 
 
 if __name__ == '__main__':

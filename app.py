@@ -36,7 +36,10 @@ def authenticate():
 def authorized():
 	code = request.args.get('code')
 	client = stravalib.client.Client()
-	return render_template('authorized.html', code=code)
+	token = client.exchange_code_for_token(client_id=client_id,
+		client_secret=client_secret,
+		code=code)
+	return render_template('authorized.html', code=code, token=token)
 """
 @app.route('/authorized')
 def authorized():

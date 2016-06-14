@@ -2,15 +2,14 @@ from flask import Flask, render_template, request, redirect
 import requests
 import simplejson
 from stravalib import Client
-import configparser
+import os
 
 app = Flask(__name__)
 
-# Load the config from a file
-cfg = configparser.ConfigParser(default_section="StravaClient")
-cfg.read("strava.cfg")
+# Get configuration variables from Heroku global environment
+client_id = os.environ['strava_client_id']
+client_secret = os.environ['strava_client_secret']
 
-client_id = cfg.get("StravaClient", "ClientId")
 print client_id
 
 @app.route('/',methods=['GET'])

@@ -10,7 +10,7 @@ app = Flask(__name__)
 client_id = os.environ['strava_client_id']
 client_secret = os.environ['strava_client_secret']
 
-print client_id
+print "client id cc: " + str(client_id)
 
 @app.route('/',methods=['GET'])
 def index():
@@ -23,7 +23,9 @@ def home():
 	else:
 		# request was a POST
 		code = request.get('code')
-		access_token = client.exchange_code_for_token(client_id=1234, client_secret='asdf1234', code=code)
+		print "code cc: " + str(code)
+		access_token = client.exchange_code_for_token(client_id=client_id, client_secret=str(client_secret), code=code)
+		print "access token cc: " + str(access_token)
 
 
 if __name__ == '__main__':

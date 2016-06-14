@@ -32,6 +32,9 @@ def authenticate():
 
 	#	return render_template('authorization.html')
 
+@app.route('/authorized', methods=['GET', 'POST'])
+def authorized():
+	return render_template('authorized.html')
 """
 @app.route('/authorized')
 def authorized():

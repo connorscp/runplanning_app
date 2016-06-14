@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import requests
 import simplejson
-from stravalib import Client
+import stravalib
 import os
 
 app = Flask(__name__)

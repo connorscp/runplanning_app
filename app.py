@@ -35,6 +35,7 @@ def authenticate():
 @app.route('/authorized', methods=['GET', 'POST'])
 def authorized():
 	code = request.args.get('code')
+	client = stravalib.client.Client()
 	return render_template('authorized.html', code=code)
 """
 @app.route('/authorized')

@@ -4,9 +4,6 @@ import simplejson
 from stravalib import Client
 
 app = Flask(__name__)
-#with open("secrets/strava_secrets.json.nogit") as fh:
-#	secrets = simplejson.loads(fh.read())
-#print secrets["client_id"]	
 
 @app.route('/',methods=['GET'])
 def index():
@@ -15,11 +12,6 @@ def index():
 @app.route('/index',methods=['GET','POST'])
 def home():
 	if request.method =='GET':
-		#with open("secrets/strava_secrets.json.nogit") as fh:
-		#	secrets = simplejson.loads(fh.read())
-
-		#client_id = secrets["client_id"]
-		#return render_template('authenticate.html',client_id=client_id)
 		return render_template('authenticate.html')
 	else:
 		# request was a POST

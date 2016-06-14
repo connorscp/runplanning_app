@@ -16,7 +16,7 @@ def home():
 		pass
 
 
-if __name == '__main__':
+if __name__ == '__main__':
 	#app.run(host='0.0.0.0') # when running on DO. Start w/ vagrant:5000/index
 	#app.run(port=33507) # when run on heroku
 	app.run(debug=True)

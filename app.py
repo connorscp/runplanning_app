@@ -31,6 +31,18 @@ def authenticate():
 #
 #		return render_template('authorization.html')
 
+@app.route('/authorized')
+def authorized():
+	code = flask.request.args.get('code', '')
+    client = stravalib.client.Client()
+    token = client.exchange_code_for_token(client_id=CLIENT_ID,
+            client_secret=CLIENT_SECRET,
+            code = code)
+    flask.session['access_token'] = token
+    print token
+    #return flask.redirect(flask.url_for('homepage'))
+    return render_template('authorized.html')
+
 
 if __name__ == '__main__':
 	#app.run(host='0.0.0.0') # when running on DO. Start w/ vagrant:5000/index

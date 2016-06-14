@@ -4,9 +4,9 @@ import simplejson
 from stravalib import Client
 
 app = Flask(__name__)
-with open("secrets/strava_secrets.json.nogit") as fh:
-	secrets = simplejson.loads(fh.read())
-print secrets["client_id"]	
+#with open("secrets/strava_secrets.json.nogit") as fh:
+#	secrets = simplejson.loads(fh.read())
+#print secrets["client_id"]	
 
 @app.route('/',methods=['GET'])
 def index():

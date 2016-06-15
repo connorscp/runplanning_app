@@ -45,6 +45,9 @@ def authorized():
 	name = athlete.firstname
 	email = athlete.email
 
+	print name
+	print email
+
 
 	return render_template('authorized.html', code=code, token=token, name=name, email=email)
 """

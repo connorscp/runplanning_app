@@ -45,7 +45,7 @@ def authorized():
 	# Return authorized page
 	name = athlete.firstname
 
-	return render_template('authorized.html', code=code, token=token, name=name, email=email)
+	return render_template('authorized.html', name=name)
 
 
 if __name__ == '__main__':

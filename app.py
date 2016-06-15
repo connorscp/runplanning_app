@@ -39,7 +39,22 @@ def authorized():
 	token = client.exchange_code_for_token(client_id=client_id,
 		client_secret=client_secret,
 		code=code)
-	return render_template('authorized.html', code=code, token=token)
+
+	athlete = token.get_athlete()
+	name = athlete.firstname
+	email = athlete.email
+
+
+	return render_template('authorized.html', code=code, token=token, name=name, email=email)
+"""
+Congratulations! We've successfully authorized to connect your running history to 
+the Run Planning app! The code is 6546d8346384d41dc26a99f5d40654981355d415. 
+The token is e4bd0abdb7726b04a7a2c715684b0576f14414ca
+"""
+
+
+
+
 """
 @app.route('/authorized')
 def authorized():

@@ -40,7 +40,7 @@ def authorized():
 		client_secret=client_secret,
 		code=code)
 
-	client2 = Client(token)
+	client2 = stravalib.Client(token)
 	athlete = client2.get_athlete()
 	name = athlete.firstname
 	email = athlete.email

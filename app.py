@@ -37,7 +37,7 @@ def authorized():
 
 	username = athlete.username
 
-	user_tokens[username] = token
+	#user_tokens[username] = token
 
 	#with open('tokens/tokens.json', 'w') as f:
 	#	json.dump(user_tokens, f)

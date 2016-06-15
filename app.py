@@ -10,9 +10,11 @@ app = Flask(__name__)
 client_id = os.environ['strava_client_id']
 client_secret = os.environ['strava_client_secret']
 
+
 @app.route('/', methods=['GET'])
 def homepage():
 	return redirect('/authenticate')
+
 
 # Authenticate page displays the 'Connect to Strava' button
 @app.route('/authenticate', methods=['GET', 'POST'])
@@ -20,6 +22,8 @@ def authenticate():
 	# if request.method =='GET':
 	return render_template('authenticate.html')
 
+
+# Converts code to access_token and outputs to authorized page
 @app.route('/authorized', methods=['GET', 'POST'])
 def authorized():
 	# Get code from auth url and convert to token
@@ -30,10 +34,6 @@ def authorized():
 		code=code)
 
 	# Output token to user on authorized.html
-
-	#user = stravalib.Client(token)
-	#athlete = user.get_athlete()
-
 	return render_template('authorized.html', token=token)
 
 

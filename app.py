@@ -33,8 +33,12 @@ def authorized():
 		client_secret=client_secret,
 		code=code)
 
+	user = stravalib.Client(token)
+	athlete = client.get_athlete()
+	firstname = athlete.firstname
+
 	# Output token to user on authorized.html
-	return render_template('authorized.html', token=token)
+	return render_template('authorized.html', token=token, name=firstname)
 
 
 if __name__ == '__main__':

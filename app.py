@@ -40,7 +40,8 @@ def authorized():
 		client_secret=client_secret,
 		code=code)
 
-	athlete = token.get_athlete()
+	client2 = Client(token)
+	athlete = client2.get_athlete()
 	name = athlete.firstname
 	email = athlete.email
 

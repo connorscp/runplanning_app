@@ -39,8 +39,8 @@ def authorized():
 
 	user_tokens[username] = token
 
-	with open('tokens/tokens.json', 'w') as f:
-		json.dump(user_tokens, f)
+	#with open('tokens/tokens.json', 'w') as f:
+	#	json.dump(user_tokens, f)
 
 	# Return authorized page
 	name = athlete.firstname

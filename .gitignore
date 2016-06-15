@@ -1,4 +1,5 @@
 *.nogit
+*.ipynb
 
 # Folders
 secrets/
